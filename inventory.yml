@@ -1,0 +1,23 @@
+---
+all:
+  children:
+    pemserver:
+      hosts:
+        pemserver1.vincent.internal:
+          ansible_host: 34.75.68.2
+          private_ip: 10.142.0.2
+    barmanserver:
+      hosts:
+        barmanserver1.vincent.internal:
+          ansible_host: 35.229.57.45
+          private_ip: 10.142.0.3
+    primary:
+      hosts:
+        epas1.vincent.internal:
+          ansible_host: 34.75.238.226
+          private_ip: 10.142.0.4
+          barman: true
+          barman_server_private_ip: 10.142.0.3
+          barman_backup_method: postgres
+          pem_agent: true
+          pem_server_private_ip: 10.142.0.2
